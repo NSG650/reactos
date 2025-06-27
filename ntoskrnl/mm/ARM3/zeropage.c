@@ -118,6 +118,7 @@ MmZeroPageThread(VOID)
 
             while (Pfn1 != (PMMPFN)LIST_HEAD)
             {
+                MI_SET_USAGE(MI_USAGE_NOT_SET);
                 PageIndex = MiGetPfnEntryIndex(Pfn1);
                 Pfn1 = (PMMPFN)Pfn1->u1.Flink;
                 MiInsertPageInList(&MmZeroedPageListHead, PageIndex);

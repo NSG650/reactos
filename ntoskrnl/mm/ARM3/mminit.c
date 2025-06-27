@@ -1849,6 +1849,7 @@ MiBuildPagedPool(VOID)
         if (!PointerPpe->u.Hard.Valid)
         {
             /* It is not, so map a fresh zeroed page */
+            MI_SET_USAGE(MI_USAGE_PAGED_POOL);
             TempPpe.u.Hard.PageFrameNumber = MiRemoveZeroPage(0);
             MI_WRITE_VALID_PPE(PointerPpe, TempPpe);
             MiInitializePfnForOtherProcess(TempPpe.u.Hard.PageFrameNumber,
